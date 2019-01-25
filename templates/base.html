@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="/static/base.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Sarabun:400,700" rel="stylesheet">
+    <title>{% block title %}{% endblock %} - Dreams</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="content">
+      {% block content %}
+      <nav>
+        <ul>
+          <li>Dream Project</li>
+          <li>My Dreams</li>
+          <li>
+            <a href="/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+      {% endblock %}
+    </div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>
