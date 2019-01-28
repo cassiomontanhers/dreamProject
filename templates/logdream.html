@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}My Dreams{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/style-main.css" type="text/css">
+    <link rel="stylesheet" href="/static/logdream.css" type="text/css">
+    {{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+
+    <h1>Log Dream</h1>
+
+    <form action="/adddream" method="POST">
+      <div class="">
+        <div class="form">
+          <div class="control-group">
+            <textarea type="textarea" class="" value="" placeholder="Dream" name="info"></textarea>
+          </div>
+          <div class="control-group">
+            <input type="date" class="center" value="" placeholder="Date" name="date">
+          </div>
+          <input type="submit" value="Log Dream" class="btn btn-primary btn-large btn-block">
+        </div>
+      </div>
+    </form>
+
+
+{% endblock %}

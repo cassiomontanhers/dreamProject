@@ -8,23 +8,29 @@
     {% endblock %}
 </head>
 <body>
-    <div id="content">
-      {% block content %}
-      <nav>
-        <ul>
-          <li>Dream Project</li>
-          <li>My Dreams</li>
-          <li>
-            <a href="/logout">Logout</a>
-          </li>
-        </ul>
-      </nav>
-      {% endblock %}
-    </div>
-    <div id="footer">
-        {% block footer %}
-        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
-        {% endblock %}
-    </div>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Dream Project</a>
+      </li>
+      <li>
+        <a href="/mydreams">My Dreams</a>
+      </li>
+      <li>
+        <a href="/logout">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
 </body>
+<footer>
+  <div id="footer">
+    {% block footer %}
+    &copy; <a href="#">Cassio Montanher Silva</a>.
+    {% endblock %}
+  </div>
+</footer>
 </html>

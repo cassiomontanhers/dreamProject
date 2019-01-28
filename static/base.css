@@ -5,7 +5,26 @@ html{
   font-weight: bold;
 }
 
-body #content nav ul{
+body{
+  background: #964687; /* Old browsers */
+  background: -moz-linear-gradient(top, #964687 0%, #ad1283 50%, #a33478 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #964687 0%,#ad1283 50%,#a33478 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #964687 0%,#ad1283 50%,#a33478 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#964687', endColorstr='#a33478',GradientType=0 ); /* IE6-9 */
+  margin: 0;
+}
+
+footer{
+  bottom: 0;
+  position: absolute;
+}
+
+a{
+  text-decoration: none;
+  color: #D8BFD8;
+}
+
+body nav ul{
   background-color: #800080;
   width: 100%;
   display: flex;
@@ -17,9 +36,65 @@ body #content nav ul{
   margin: 0;
 }
 
-body #content nav ul li{
+body nav ul li{
   flex-wrap: nowrap;
   text-align: center;
   font-size: 1.5rem;
   flex: 1 1 0;
+}
+
+h1{
+  text-align: center;
+}
+
+#content{
+  width: 90%;
+  margin: auto;
+}
+
+.btn {
+border: 2px solid transparent;
+background: #964687;
+color: #D8BFD8;
+font-size: 16px;
+line-height: 25px;
+padding: 10px 0;
+text-decoration: none;
+text-shadow: none;
+border-radius: 3px;
+box-shadow: none;
+transition: 0.25s;
+display: block;
+width: 250px;
+margin: 0 auto;
+}
+
+.btn:hover {
+background-color: #662e5b;
+}
+
+input, textarea {
+text-align: center;
+background-color: #e8cee3;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 250px;
+transition: border .5s;
+}
+
+textarea{
+  height: 8rem;
+  width: 80%;
+}
+
+input:focus, textarea:focus {
+border: 2px solid #964687;
+box-shadow: none;
+}
+
+.control-group {
+margin-bottom: 10px;
 }

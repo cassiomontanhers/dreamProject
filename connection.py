@@ -67,6 +67,8 @@ def create_table_dreams():
         cur.execute("""
         CREATE TABLE IF NOT EXISTS dreams (
         id integer PRIMARY KEY,
+        id_user integer NOT NULL,
+        dream_date date NOT NULL,
         info text NOT NULL
         );""")
         data = cur.fetchone()
@@ -89,13 +91,38 @@ def add_user(user):
     conn.close()
     return cur.lastrowid
 
+def add_dream(dream):
+    conn = create_connection()
+    sql = ''' INSERT INTO dreams VALUES(null,?,?,?) '''
+    cur = conn.cursor()
+    cur.execute(sql, dream)
+    conn.commit()
+    conn.close()
+    return cur.lastrowid
+
 def get_all_user():
     conn = create_connection()
     cur = conn.cursor()
     cur.execute("SELECT * FROM users")
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    # for row in rows:
+    #     print(row)
+
+def get_all_dreams_from_user(id):
+    conn = create_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM dreams where id_user=?", (id,))
+    rows = cur.fetchall()
+    # for row in rows:
+    #     print(row)
+    return rows
+
+def get_rdn_dream():
+    conn = create_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM dreams ORDER BY RANDOM() LIMIT 1")
+    rows = cur.fetchone()
+    return rows
 
 def verify_login(username, password):
     conn = create_connection()
@@ -103,9 +130,9 @@ def verify_login(username, password):
     cur.execute("SELECT * FROM users WHERE name=? AND password=?", (username, password))
     rows = cur.fetchone()
 
-    if rows:
-        print(rows)
-    else:
-        print("Empty Return")
-        
+    # if rows:
+    #     print(rows)
+    # else:
+    #     print("Empty Return")
+
     return rows

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}My Dreams{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/style-main.css" type="text/css">
+    <link rel="stylesheet" href="/static/mydreams.css" type="text/css">
+    {{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+
+    <h1>My Dreams</h1>
+    <form action="/logdream" method="GET">
+        <input type="submit" value="Log new dream" class="btn btn-primary btn-large btn-block"/>
+    </form>
+    <div class="dreams-reg">
+      <ul>
+        {% for dream in dreams %}
+        <li>{{ dream[2] }} - {{dream[3]}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <p>
+      Your Dreams.
+    </p>
+{% endblock %}

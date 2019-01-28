@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import jsonify
 import os
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def do_login():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
     logged = verify_login(POST_USERNAME, POST_PASSWORD)
-    print(logged)
+    # print(logged)
     if logged:
         session['username'] = logged[1]
         session['uid'] = logged[0]
@@ -50,6 +51,43 @@ def do_signup():
 def logout():
     session['uid'] = -1
     return home()
+
+@app.route("/mydreams")
+def mydreams():
+    if check_session():
+        dreams = get_all_dreams_from_user(session['uid'])
+        return render_template('mydreams.html', dreams=dreams)
+    else:
+        setup()
+        return render_template('login.html')
+        session['uid'] = -1
+
+@app.route("/logdream")
+def logdream():
+    if check_session():
+        return render_template('logdream.html')
+    else:
+        setup()
+        return render_template('login.html')
+        session['uid'] = -1
+
+@app.route('/adddream', methods=['POST'])
+def adddream():
+    info = str(request.form['info'])
+    dream_date = str(request.form['date'])
+    user_fk = session['uid']
+    dream = (user_fk, dream_date, info)
+    add_dream(dream)
+    return mydreams()
+
+@app.route('/get_rdn_dream', methods=['GET'])
+def getRdnDream():
+    dream = get_rdn_dream()
+    feature_dream =	{
+      "info": dream[3],
+      "date": dream[2]
+    }
+    return jsonify(feature_dream)
 
 def check_session():
     if session.get('uid'):

@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="/static/style.css" type="text/css">
+<link rel="stylesheet" href="/static/sign.css" type="text/css">
+<link rel="stylesheet" href="/static/base.css" type="text/css">
 {% block body %}
 {% if session['logged_in'] %}
 
@@ -29,5 +30,9 @@ You're logged in already!
     </div>
   </div>
 </div>
-</form>{% endif %}
+</form>
+<form action="/" method="GET">
+    <input type="submit" value="Back" class="btn btn-primary btn-large btn-block"/>
+</form>
+{% endif %}
 {% endblock %}

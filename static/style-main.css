@@ -1,8 +1,18 @@
-body{
-  background: #964687; /* Old browsers */
-  background: -moz-linear-gradient(top, #964687 0%, #ad1283 50%, #a33478 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #964687 0%,#ad1283 50%,#a33478 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #964687 0%,#ad1283 50%,#a33478 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#964687', endColorstr='#a33478',GradientType=0 ); /* IE6-9 */
-  margin: 0;
+p{
+  font-size: 2rem;
+  font-style: italic;
+}
+
+#feature-dream-info{
+  text-align: center;
+}
+
+#feature-dream-date{
+  font-size: 1rem;
+}
+
+#feature-dream{
+  top: 40%;
+  position: absolute;
+  width: 90%;
 }
